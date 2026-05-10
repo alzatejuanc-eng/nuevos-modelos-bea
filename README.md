@@ -114,27 +114,57 @@ Los modelos fueron evaluados en 4 dimensiones: tiempo al mercado, potencial de i
 
 ## 🛠️ Cómo usar este repositorio
 
-### Ver el informe
+### Ver el informe localmente
 
-El informe es un archivo HTML estático autocontenido. Puedes:
+El informe es un archivo HTML estático autocontenido. Descarga `index.html` y ábrelo en cualquier navegador moderno — no requiere servidor ni dependencias.
 
-1. **Localmente:** descargar `BEA_Modelos_Negocio_ExO_Sprint.html` y abrirlo en cualquier navegador moderno
-2. **GitHub Pages:** activar GitHub Pages en este repositorio (Settings → Pages → Deploy from branch `main`, carpeta `/root`) y acceder por URL pública
-3. **Presentación:** proyectar directamente desde el navegador — el diseño es responsivo y funciona en pantalla completa
+---
 
-### GitHub Pages (recomendado para compartir con directivos)
+### Desplegar en Vercel ✅ (recomendado)
+
+> **Importante:** Vercel requiere que el archivo principal se llame `index.html` en la raíz del repositorio. Este repositorio ya está configurado correctamente.
 
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/tu-usuario/bea-exo-sprint.git
 cd bea-exo-sprint
 
-# 2. Activar GitHub Pages en Settings del repositorio
-# Branch: main | Folder: / (root)
+# 2. Conectar en vercel.com → "Add New Project" → importar desde GitHub
+# 3. En la configuración de Vercel:
+#    Framework Preset: Other
+#    Root Directory: ./  (dejar en raíz)
+#    Build Command: (dejar vacío)
+#    Output Directory: ./  (dejar en raíz o punto)
 
-# 3. Acceder en:
-# https://tu-usuario.github.io/bea-exo-sprint/BEA_Modelos_Negocio_ExO_Sprint.html
+# 4. Click en Deploy — el informe queda en:
+# https://bea-exo-sprint.vercel.app
 ```
+
+Si el error persiste en Vercel, agrega un archivo `vercel.json` en la raíz:
+
+```json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+---
+
+### Desplegar en GitHub Pages
+
+```bash
+# 1. Ir a Settings → Pages del repositorio
+# 2. Source: Deploy from a branch
+# 3. Branch: main | Folder: / (root)
+# 4. Guardar — el informe queda en:
+# https://tu-usuario.github.io/bea-exo-sprint/
+```
+
+---
+
+### Presentación en vivo
+
+Proyectar `index.html` directamente desde el navegador en pantalla completa (`F11`). El diseño es responsivo y funciona en cualquier resolución.
 
 ---
 
@@ -143,7 +173,8 @@ cd bea-exo-sprint
 ```
 bea-exo-sprint/
 ├── README.md
-└── BEA_Modelos_Negocio_ExO_Sprint.html
+├── index.html                             ← informe principal (Vercel / GitHub Pages)
+└── BEA_Modelos_Negocio_ExO_Sprint.html   ← copia de respaldo del informe
 ```
 
 ---
